@@ -66,9 +66,9 @@ impl Matrix {
 
 pub fn count_neighbours(m: &Matrix, x: i32, y: i32) -> u32 {
     let mut count = 0;
-    for row in (y - 1)..=(y + 1) {
-        for col in (x - 1)..=(x + 1) {
-            if (col, row) != (x, y) && m.read_with_wrap(col, row) {
+    for row in -1..=1 {
+        for col in -1..=1 {
+            if (col, row) != (0, 0) && m.read_with_wrap(x+col, y+row) {
                 count += 1;
             }
         }
