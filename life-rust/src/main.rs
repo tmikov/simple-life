@@ -42,14 +42,12 @@ impl Matrix {
     pub fn read_with_wrap(&self, mut x: i32, mut y: i32) -> bool {
         if x < 0 {
             x += self.width;
+        } else if x >= self.width {
+            x -= self.width;
         }
         if y < 0 {
             y += self.height;
-        }
-        if x >= self.width {
-            x -= self.width;
-        }
-        if y >= self.height {
+        } else if y >= self.height {
             y -= self.height;
         }
 
