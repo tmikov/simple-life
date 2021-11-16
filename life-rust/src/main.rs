@@ -68,7 +68,7 @@ pub fn count_neighbours(m: &Matrix, x: i32, y: i32) -> u32 {
     let mut count = 0;
     for row in -1..=1 {
         for col in -1..=1 {
-            if (col, row) != (0, 0) && m.read_with_wrap(x+col, y+row) {
+            if (col, row) != (0, 0) && m.read_with_wrap(x + col, y + row) {
                 count += 1;
             }
         }

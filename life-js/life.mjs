@@ -63,12 +63,12 @@ function readState(state, x, y) {
 
 function countNeighbors(state, x, y) {
     let count = 0;
-    for (let row = y - 1; row <= y + 1; row = row + 1) {
-        for (let col = x - 1; col <= x + 1; col = col + 1) {
-            if (row === y && col === x)
+    for (let row = -1; row <= 1; ++row) {
+        for (let col = -1; col <= 1; ++col) {
+            if (row === 0 && col === 0)
                 continue;
-            if (readState(state, col, row))
-                count = count + 1;
+            if (readState(state, x + col, y + row))
+                ++count;
 
         }
     }

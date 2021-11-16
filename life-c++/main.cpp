@@ -58,9 +58,9 @@ class Matrix {
 
 unsigned countNeighbours(const Matrix & m, int x, int y) {
     unsigned count = 0;
-    for (int row = y - 1; row <= y + 1; ++row) {
-        for (int col = x - 1; col <= x + 1; ++col) {
-            if ((col != x || row != y) && m.readWithWrap(col, row))
+    for (int row = -1; row <= 1; ++row) {
+        for (int col = -1; col <= 1; ++col) {
+            if ((col != 0 || row != 0) && m.readWithWrap(x + col, y + row))
                 ++count;
         }
     }
